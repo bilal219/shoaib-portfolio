@@ -1,37 +1,19 @@
-'use client'
-
-import Hero from './components/sections/Hero'
-import About from './components/sections/About'
-import Education from './components/sections/Education'
-import Experience from './components/sections/Experience'
-import Skills from './components/sections/Skills'
-import Certificates from './components/sections/Certificates'
-import Contact from './components/sections/Contact'
-import FloatingHeader from './components/ui/FloatingHeader'
+import Navigation from '@/components/Navigation';
+import About from '@/components/About';
+import Experience from '@/components/Experience';
+import Education from '@/components/Education';
+import Contact from '@/components/Contact';
 
 export default function Home() {
   return (
-    <main className="relative bg-black text-white overflow-x-hidden">
-      {/* Global Background with Deep Dodger Blue Gradients */}
-      <div className="fixed inset-0 bg-gradient-to-br from-black via-blue-950 to-black -z-20" />
-      <div className="fixed inset-0 bg-gradient-to-tr from-transparent via-blue-900/10 to-transparent -z-19" />
-      <div className="fixed inset-0 bg-gradient-to-bl from-blue-950/20 via-transparent to-blue-950/20 -z-18" />
-      
-      {/* Animated background overlay */}
-      <div className="fixed inset-0 opacity-30 -z-17">
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-600/5 to-transparent animate-pulse" />
-      </div>
-      
-      {/* Floating Header */}
-      <FloatingHeader />
-      
-      <Hero />
-      <About />
-      <Education />
-      <Experience />
-      <Skills />
-      <Certificates />
-      <Contact />
-    </main>
-  )
+    <>
+      <Navigation />
+      <main id="content" className="pt-24 pb-24 lg:pb-24 lg:w-1/2 lg:py-24 space-y-20 lg:space-y-24">
+        <About />
+        <Education />
+        <Experience />
+        <Contact />
+      </main>
+    </>
+  );
 }

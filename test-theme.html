@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 min-h-screen p-8 transition-colors">
+    <div class="max-w-md mx-auto">
+        <h1 class="text-3xl font-bold mb-4">Theme Toggle Test</h1>
+        <p class="mb-4">This text should change color when you toggle dark mode.</p>
+        <div class="bg-white dark:bg-slate-800 p-4 rounded-lg shadow mb-4">
+            <p class="text-slate-600 dark:text-slate-300">This is a card that should have different colors in dark mode.</p>
+        </div>
+        <button 
+            id="themeToggle"
+            class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors"
+        >
+            Toggle Dark Mode
+        </button>
+        <p class="mt-4 text-sm text-slate-500 dark:text-slate-400">
+            Current mode: <span id="currentMode">Light</span>
+        </p>
+    </div>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const currentMode = document.getElementById('currentMode');
+        const html = document.documentElement;
+        
+        let isDark = false;
+        
+        function updateMode() {
+            if (isDark) {
+                html.classList.add('dark');
+                currentMode.textContent = 'Dark';
+            } else {
+                html.classList.remove('dark');
+                currentMode.textContent = 'Light';
+            }
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            isDark = !isDark;
+            updateMode();
+        });
+        
+        // Initial state
+        updateMode();
+    </script>
+</body>
+</html>
